@@ -1,0 +1,54 @@
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    min-width: 100%;
+}
+th{
+    background-color: #04AA6D;
+    color: white;
+    position: relative;
+    padding-right: 28px !important;
+}
+th:hover{
+    cursor: default;
+    background-color: #06603f;
+}
+th, td{
+    padding: 15px;
+    text-align: left;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+th.sort-asc::after{
+    content: "↓";
+    position: absolute;
+    right: 6px;
+}
+th.sort-desc::after{
+    content: "↑";
+    right: 6px;
+    position: absolute;
+}
+form{
+    width: 100%;
+    max-width: 300px;
+}
+form input{
+    width: 100%;
+    margin: 4px 0;
+    padding: 6px 12px;
+    box-sizing: border-box;
+}
+form button{
+    padding: 6px 24px;
+    margin: 8px 0;
+}
+form button[type=reset]{
+    float: right;
+}
+span.search-box{
+    font-size: small;
+    float: right;
+    padding: 0 16px 8px 16px;
+}

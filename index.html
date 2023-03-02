@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    <h4>Add Contact</h4>
+    <form action="contact_table.php" method="post" name="form_contact">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="tel" name="phone" placeholder="Telephone number" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Submit</button>
+        <button type="reset" onclick="this.form.action='contact_table.php'">Cancel</button>
+    </form>
+
+    <h4>My Contacts
+        <span class="search-box">
+            Search: <input type="search" placeholder="Search" id="search">
+        </span>
+    </h4>
+    <table>
+        <thead>
+            <tr>
+                <th class="sort-asc" column="name">Name</th>
+                <th column="phone">Telephone Number</th>
+                <th column="email">Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script src="assets/script.js"></script>
+    <!-- <script>
+        $(document).ready(async function () {
+            contacts = await getContacts();
+            let sortedColumn = null;
+            console.log(contacts);
+            sortBy('name', contacts, true);
+            writeTable(contacts);
+            $('th[column]').click(function (params) {
+                let h = this;// document.getElementById('');
+                let column = h.getAttribute('column');
+                let ths = document.querySelectorAll('th');
+                ths.forEach((th) => th !== this ? th.className = '' : null);
+                if (h.classList.replace('sort-asc', 'sort-desc')) {
+                    console.log('sorting by '+column+' in desending')
+                    writeTable(sortBy(column, contacts, false))
+                } else if (h.classList.replace('sort-desc', 'sort-asc')) {
+                    console.log('sorting by '+column+' in acsending')
+                    writeTable(sortBy(column, contacts, true))
+                } else {
+                    h.classList.add('sort-asc');
+                    console.log('sorting by '+column+' in acsending')
+                    writeTable(sortBy(column, contacts, true))
+                }
+                sortedColumn = column;
+            });
+            $('#search').on('input',function(event){
+                search(this.value, contacts);
+            });
+            // $('button[delete]').click(async function (event) {
+            //     let rowId = this.getAttribute('delete');
+            //     result = await deleteContact(rowId);
+            //     if(result.success){
+            //         contacts = contacts.filter((item) => {item.id != rowId});
+            //         let searchKey = $('#search').val();
+            //         console.log(contacts);
+            //         console.log(searchKey);
+            //         search(searchKey, contacts);
+            //     }
+            // });
+            // $('button[edit]').click(async function (event) {
+            //     console.log('edit')
+            //     let rowId = this.getAttribute('edit');
+            //     let item = contacts.find((item) => item.id == rowId);
+            //     form_contact.name.value = item.name;
+            //     form_contact.phone.value = item.phone;
+            //     form_contact.email.value = item.email;
+            //     form_contact.action = "contact_table.php?edit="+item.id;
+            // });
+            // $('button[type=submit]').click(async function(event){
+            //     event.preventDefault();
+            //     if(document.forms[0].reportValidity()){
+            //         let data = {};
+            //         data.name = this.form.name.value;
+            //         data.phone = this.form.phone.value;
+            //         data.email = this.form.email.value;
+            //         let res = await postContact(data);
+            //         console.log(res);
+            //         if(res.success){
+            //             data.id = res.id;
+            //             contacts.push(data);
+            //             if(sortedColumn)
+            //                 writeTable(sortBy(sortedColumn, contacts, true))
+            //         }
+            //     }
+            // })
+        });
+
+//         function search(key, contacts){
+//             let filtered = []
+//             key = key.toLowerCase();
+//             for(var i in contacts){
+//                 for(var j in contacts[i]){
+//                     if(contacts[i][j].toLowerCase().search(key) > -1){
+//                         filtered.push(contacts[i])
+//                         break;
+//                     }
+//                 }
+//             }
+//             writeTable(filtered);
+//         }
+
+//         function writeTable(contacts) {
+//             $("tbody").empty();
+//             for (var i of contacts) {
+//                 console.log(i)
+//                 $("tbody").append(`
+// <tr id="${i.id}">
+//     <td>${i.name}</td>
+//     <td>${i.phone}</td>
+//     <td>${i.email}</td>
+//     <td><button onclick="editContact(${i.id})">Edit</button><button delete="${i.id}">Delete</button></td>
+// </tr>
+//                 `);
+//             }
+//         }
+
+    </script> -->
+</body>
+
+</html>
